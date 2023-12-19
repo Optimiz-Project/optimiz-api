@@ -1,0 +1,1 @@
+{"version":3,"file":"ApiRun.js","sourceRoot":"","sources":["../../../src/controllers/allControllers/ApiRun.ts"],"names":[],"mappings":";;AAEA,MAAM,UAAU,GAAG;IACjB,GAAG,EAAE,CAAC,GAAY,EAAE,GAAa,EAAE,EAAE;QACnC,GAAG,CAAC,IAAI,CAAC,gBAAgB,CAAC,CAAA;IAC5B,CAAC;CACF,CAAA;AAED,kBAAe,UAAU,CAAA"}
