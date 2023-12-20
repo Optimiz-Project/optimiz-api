@@ -2,7 +2,7 @@
   "name": "optimiz-api",
   "version": "1.0.0",
   "description": "For Optimiz! app (Product-Based Capstone Project Bangkit 2023 H2)",
-  "main": "index.js",
+  "main": "dist/server.js",
   "scripts": {
     "build": "npx tsc",
     "start": "node ./dist/server.js",
