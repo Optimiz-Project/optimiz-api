@@ -1,14 +1,15 @@
-import express, { type Application } from 'express'
+import express, { type Express } from 'express'
 import cors from 'cors'
 import dotenv from 'dotenv'
 import admin from './config/firebase'
 import router from './routes/routes'
 
 dotenv.config()
-const db = admin.firestore()
 
-const app: Application = express()
+const app: Express = express()
 const port: number = isNaN(Number(process.env.PORT)) ? 3000 : Number(process.env.PORT)
+
+const db = admin.firestore()
 
 try {
   const testDoc = db.collection('test').doc('testDoc').get()

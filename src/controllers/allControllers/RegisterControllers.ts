@@ -13,7 +13,7 @@ const controller = {
     }
 
     if (user.password !== user.confPassword) {
-      res.status(400).json({
+      return res.status(400).json({
         status: 'failed',
         message: 'Password tidak cocok'
       })

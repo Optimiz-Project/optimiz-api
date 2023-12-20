@@ -32,4 +32,4 @@ firebase_admin_1.default.initializeApp({
     credential: firebase_admin_1.default.credential.cert(serviceAccount)
 });
 exports.default = firebase_admin_1.default;
-//# sourceMappingURL=database.js.map
+//# sourceMappingURL=firebase.js.map
