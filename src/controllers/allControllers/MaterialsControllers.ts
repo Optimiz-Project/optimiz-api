@@ -6,7 +6,7 @@ const db = admin.firestore()
 const controller = {
   getMateriCollection: async (req: Request, res: Response) => {
     try {
-      const articleCollection = db.collection('Materials')
+      const articleCollection = db.collection('materials')
       const articleSnapshot = await articleCollection
         .get()
       if (articleSnapshot.empty) {
@@ -29,7 +29,7 @@ const controller = {
   getMateri: async (req: Request, res: Response) => {
     try {
       const materiId = req.params.materiId
-      const articleCollection = db.collection('Materials')
+      const articleCollection = db.collection('materials')
       const articleSnapshot = await articleCollection
         .where('id', '==', materiId)
         .get()

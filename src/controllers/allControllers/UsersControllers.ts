@@ -6,24 +6,23 @@ const controller = {
     const { email, newPassword, confPassword } = req.body
     console.log(req.body)
     if (email == null || newPassword == null || confPassword == null) {
-      res.status(401).json({
+      return res.status(401).json({
         status: 'failed',
         message: 'Harap isi semua field'
       })
     }
-
     try {
       const userRecord = await admin.auth().getUserByEmail(String(email))
       if (userRecord == null) {
-        res.status(401).json({
+        return res.status(401).json({
           status: 'failed',
-          message: 'email invalid'
+          message: 'Email tidak valid'
         })
       }
       if (newPassword !== confPassword) {
-        res.status(400).json({
+        return res.status(400).json({
           status: 'failed',
-          message: 'password harus sama'
+          message: 'Password tidak cocok'
         })
       }
       const uid = userRecord.uid
