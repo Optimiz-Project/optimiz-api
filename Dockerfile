@@ -1,4 +1,4 @@
-FROM node as builder
+FROM node:lts-alpine as builder
 
 # Create app directory
 WORKDIR /usr/src/app
@@ -6,13 +6,13 @@ WORKDIR /usr/src/app
 # Install app dependencies
 COPY package*.json ./
 
-RUN npm ci
+RUN npm install
 
 COPY . .
 
 RUN npm run build
 
-FROM node:slim
+FROM node:lts-slim
 
 ENV NODE_ENV production
 USER node
@@ -23,10 +23,10 @@ WORKDIR /usr/src/app
 # Install app dependencies
 COPY package*.json ./
 
-RUN npm ci --production
+RUN npm ci --only=production
 
 COPY --from=builder /usr/src/app/dist ./dist
 
 EXPOSE 3000
 
-CMD [ "npm", "start" ]
+CMD [ "node", "dist/server.js" ]
