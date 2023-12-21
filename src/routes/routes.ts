@@ -13,10 +13,10 @@ router.post(`${route}/users`, controller.reg.Register)
 router.patch(`${route}/forgotPassword`, controller.user.forgotPassword)
 // Article routes
 router.get(`${route}/articles/:topic`, verifyToken, controller.articles.getArticles)
-router.get(`${route}/articles/:topic/:articleId`, controller.articles.getArticleById)
-router.get(`${route}/articles?:search`, controller.articles.searchArticle)
+router.get(`${route}/articles/:topic/:articleId`, verifyToken, controller.articles.getArticleById)
+router.get(`${route}/articles?:search`, verifyToken, controller.articles.searchArticle)
 // Materi routes
-router.get(`${route}/materials`, controller.materi.getMateriCollection)
-router.get(`${route}/materials/:materiId`, controller.materi.getMateri)
+router.get(`${route}/materials`, verifyToken, controller.materi.getMateriCollection)
+router.get(`${route}/materials/:materiId`, verifyToken, controller.materi.getMateri)
 
 export default router
